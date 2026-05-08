@@ -7,12 +7,16 @@ export default function ProductGrid() {
         {id: 3, title: "Caramel Popcorn", price:100, imageURL: "https://i.pinimg.com/1200x/14/65/59/146559d8bbd5e0d67a6002b2b83787b3.jpg"},
     ]
 
+    function onAddToCart() {
+        console.log('Product added!')
+    }
+
     return (
         <section>
             <h1>Browse through some of our products</h1>
             <div>
                 {products.map((p) => (
-                    <ProductCard key={p.id} title={p.title} price={p.price} imageURL={p.imageURL}/>
+                    <ProductCard key={p.id} title={p.title} price={p.price} imageURL={p.imageURL} onAddToCart={onAddToCart}/>
                 ))}
             </div>
         </section>
