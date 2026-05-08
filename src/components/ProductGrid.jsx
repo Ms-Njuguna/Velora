@@ -12,6 +12,11 @@ export default function ProductGrid() {
         console.log('Product added!')
     }
 
+    function handleRemove(id) {
+        console.log(`Item ID No.: ${id} has been removed from cart!`);
+    }
+
+
     return (
         <section>
             <h1>Browse through some of our products</h1>
@@ -19,7 +24,7 @@ export default function ProductGrid() {
                 {products.map((p) => (
                     <div key={p.id}>
                         <ProductCard key={p.id} title={p.title} price={p.price} imageURL={p.imageURL} onAddToCart={onAddToCart}/>
-                        <CartItem product={p}/>
+                        <CartItem product={p} handleRemove={handleRemove}/>
                     </div>
                 ))}
             </div>
