@@ -14,7 +14,7 @@ export default function ProductGrid() {
     return (
         <section>
             <h1>Browse through some of our products</h1>
-            <div>
+            <div className="grid grid-cols-3 gap-4">
                 {products.map((p) => (
                     <ProductCard key={p.id} title={p.title} price={p.price} imageURL={p.imageURL} onAddToCart={onAddToCart}/>
                 ))}
