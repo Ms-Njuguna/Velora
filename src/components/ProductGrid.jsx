@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import CartItem from "./CartItem";
 
 export default function ProductGrid() {
     const products = [
@@ -16,7 +17,10 @@ export default function ProductGrid() {
             <h1>Browse through some of our products</h1>
             <div className="grid grid-cols-3 gap-4">
                 {products.map((p) => (
-                    <ProductCard key={p.id} title={p.title} price={p.price} imageURL={p.imageURL} onAddToCart={onAddToCart}/>
+                    <div key={p.id}>
+                        <ProductCard key={p.id} title={p.title} price={p.price} imageURL={p.imageURL} onAddToCart={onAddToCart}/>
+                        <CartItem product={p}/>
+                    </div>
                 ))}
             </div>
         </section>
