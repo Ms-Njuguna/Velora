@@ -1,24 +1,40 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductGrid from "../components/ProductGrid";
+import Button from "../components/Button";
 
 export default function ProductGallery() {
+
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    useEffect(() => {
-        async function fetchProducts() {
-            try {
-                const response = await axios.get("https://dummyjson.com/products");
-                setProducts(response.data.products);
-            } catch (err) {
-                setError("Failed to fetch products.");
-            } finally {
-                setLoading(false);
-            }
-        }
+    async function fetchProducts() {
 
+        try {
+
+            setLoading(true);
+            setError("");
+
+            const response = await axios.get(
+                "https://dummyjson.com/products"
+            );
+
+            setProducts(response.data.products);
+
+        } catch (err) {
+
+            setError(
+                "Unable to load products. Please try again."
+            );
+
+        } finally {
+
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
         fetchProducts();
     }, []);
 
@@ -34,9 +50,16 @@ export default function ProductGallery() {
     // Error state
     if (error) {
         return (
-            <h1 className="text-2xl text-red-500 text-center mt-10">
-                {error}
-            </h1>
+            <div className="text-center mt-10">
+                <h1 className="text-2xl text-red-500 mb-4">
+                    {error}
+                </h1>
+
+                <Button
+                    label="Retry"
+                    onClick={fetchProducts}
+                />
+            </div>
         );
     }
 
@@ -44,5 +67,5 @@ export default function ProductGallery() {
         <div>
             <ProductGrid products={products} />
         </div>
-    )
+    );
 }
