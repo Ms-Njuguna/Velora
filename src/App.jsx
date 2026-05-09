@@ -1,4 +1,7 @@
 import ProductGrid from "./components/ProductGrid"
+import ProductTitleSync from "./components/ProductTitleSync"
+import TimerCleanup from "./components/TimerCleanup"
+import SearchEffect from "./components/SearchEffect"
 
 function App() {
   console.log(import.meta.env.VITE_API_KEY)
@@ -8,6 +11,11 @@ function App() {
         Welcome to Velora!
       </h1>
       <ProductGrid />
+      <div className="space-y-10 p-8">
+        <ProductTitleSync />
+        <TimerCleanup />
+        <SearchEffect />
+      </div>
     </>
   )
 }
