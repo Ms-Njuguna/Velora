@@ -1,4 +1,4 @@
-import ProductGrid from "./components/ProductGrid"
+import ProductGallery from "./components/ProductGallery"
 import ProductTitleSync from "./components/ProductTitleSync"
 import TimerCleanup from "./components/TimerCleanup"
 import SearchEffect from "./components/SearchEffect"
@@ -10,7 +10,7 @@ function App() {
       <h1 className="text-3xl font-bold underline">
         Welcome to Velora!
       </h1>
-      <ProductGrid />
+      <ProductGallery />
       <div className="space-y-10 p-8">
         <ProductTitleSync />
         <TimerCleanup />
